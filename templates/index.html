@@ -1,0 +1,99 @@
+{% extends 'default.html' %}
+
+{% block body %}
+    <div class="barRecherche">
+        <form method="POST">
+            <input type="text" name="recherche" id="" placeholder="Recherche">
+            <button type="submit" formaction="/">Recherche</button>
+        </form>
+    </div>
+    <div class="contain">
+        {% if name %}
+            <div class="jumia">
+                {% if elements %}
+                    {% for element in elements %}
+                        <div class="data">
+                            <img src="{{ element.image }}" alt="" srcset=""><br>
+                            {{ element.prix_fcfa }} <br>
+                            {{ element.description }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun produit ne correspond à {{ search }}</p>
+                {% endif %}
+
+
+
+            </div>
+            
+            <div class="alibaba">
+                {% if alibaba %}
+                    {% for element in alibaba %}
+                        <div class="data">
+                            <img src="{{ element.image }}" alt="" srcset=""><br>
+                            {{ element.prix_fcfa }} <p>Cfa</p> <br>
+                            {{ element.description }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun produit ne correspond à {{ search }}</p>
+                {% endif %}
+                </div>
+
+            <div class="auchan">
+                {% if auchans %}
+                    {% for element in auchans %}
+                        <div class="data">
+                            <img src="{{ element.image }}" alt="" srcset=""><br>
+                            {{ element.prix_fcfa }} <br>
+                            {{ element.description }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun produit ne correspond à {{ search }}</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="jumia">
+            
+                {% for element in elements %}
+                <div class="data">
+                    <img src="{{ element.image }}" alt="" srcset=""><br>
+                    {{ element.prix_fcfa }} <br>
+                
+                    {{ element.description }}
+                    
+                </div>
+                {% endfor %}
+            </div>
+            <div class="alibaba">
+                    {% for element in alibaba %}
+                    
+                        <div class="data">
+                            <!-- <h1>Les differentes couleurs</h1> -->
+                            <img src="{{ element.image }}"><br>
+                            {{ element.prix_fcfa }} <br>
+                            {{ element.description }} <br>
+
+                            <!-- <img src="{{ element.image }}" alt="" srcset=""><br>
+                            {{ element.description }} -->
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+            <div class="auchan">
+                {% for element in auchans %}
+                    <div class="data">
+                        <img src="{{ element.image }}" alt="" srcset=""><br>
+                        {{ element.prix_fcfa }} <br>
+
+                        {{ element.description }}
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+   
+
+{% endblock %}
