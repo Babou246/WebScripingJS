@@ -6,7 +6,7 @@
 npm install 
 
 ### Créer l'environnement virtuel
-python3 -m venv <nom_environnement> '<br>'
+python3 -m venv <nom_environnement> <br>
 source env/bin/<nom_environnement>
 
 ### Telecharger les dépendences 
